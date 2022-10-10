@@ -21,7 +21,7 @@ public class ProductService {
         Pageable pageable = PageRequest.of(pageNumber - 1, 7, sort); // 7 rows per page
 
         if (keyword != null) {
-            return repo.findAllByNameContaining(keyword, pageable);
+            return repo.findAllByNameLikeOrBrandLikeOrMadeinLike('%' + keyword + '%', '%' + keyword + '%', '%' + keyword + '%', pageable);
         }
         return repo.findAll(pageable);
     }

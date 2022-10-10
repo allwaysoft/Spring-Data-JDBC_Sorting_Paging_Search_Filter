@@ -12,6 +12,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProductRepository extends PagingAndSortingRepository<Product, Long> {
 
-    Page<Product> findAllByNameContaining(String name, Pageable pageable);
+    Page<Product> findAllByNameLikeOrBrandLikeOrMadeinLike(String name, String brand, String madein, Pageable pageable);
 
 }
